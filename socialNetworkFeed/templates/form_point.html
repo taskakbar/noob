@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Panel guru BK</title>
+        <h1>Panel guru BK</h1>
+        <center>
+            <h2>Dashboard siswa</h2>
+        </center>
+        <div>
+            <center>
+                <form action='/catatan_siswa' method='post'>
+                    <input name="Data_siswa" type='submit' value='Data Siswa'>
+                    <input name="Catatan_siswa" type='submit' value='Catatan Siswa'>
+                </form>
+            </center>
+        </div>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+    <br>
+    <hr>
+    <body>
+        <center>
+            <h1>Tambah poin
+            </h1>
+            {% for row in data_siswa %}
+                <div><form action='/catatan_siswa' method='post' action="{{url_for ('catatan_siswa')}}">
+                    <input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                    <input placeholder="" value="{{ row.1 }}" name="nama_siswa" id="nama_siswa" type="text" class="validate"></div>
+
+                <div><input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                    <input placeholder="" value="{{ row.2 }}" name="n_induk" id="n_induk" type="text" class="validate"></div>
+                <div> <input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                    <input placeholder="" value="{{ row.3 }}" name="nisn" id="nisn" type="text" class="validate"></div>
+                <div><input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                    <input placeholder="" value="{{ row.10 }}" name="h_siswa" id="h_siswa" type="text" class="validate"></div>
+                <br>
+
+                <div><input value="" name='p_kebaikan' placeholder='Poin Kebaikan'></div>
+                <br>
+
+                <div><input value="" name='p_keburukan' placeholder='Poin Keburukan'></div>
+                <br>
+                <input name="Tambah_poin_siswa" type='submit' value='Simpan'>
+            </form>
+            {% endfor %}
+    </body>
+</html></center></body></html>

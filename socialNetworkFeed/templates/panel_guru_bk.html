@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+    <title>Panel guru BK</title>
+    <h1>Panel guru BK</h1>
+    <center>
+        <h2>Dashboard siswa</h2>
+    </center>
+    <div>
+        <center>
+            <form action='/panel_guru_bk' method='post'>
+                    <input name="Data_siswa" type='submit' value='Data Siswa'>
+                    <input name="Catatan_siswa" type='submit' value='Catatan Siswa'>
+            </form></center>
+    </div>
+
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-sm-2">
+                <br><hr>
+
+
+                <form action='/panel_guru_bk' method='post'>
+                    <div><input name='nama_siswa' placeholder='Nama Siswa (Lengkap)'></div>
+                    <div><input name='n_induk' placeholder='Nomor Induk'></div>
+                    <div><input name='nisn' placeholder='NISN'></div>
+                    <div><input name='ttl' placeholder='Tempat tanggal lahir'></div>
+                    <div>Gender<select name='jenis' placeholder=''>
+                            <option value="pria">Pria</option>
+                            <option value="wanita">Wanita</option>
+                        </select>
+                    </div>
+                    <div>Agama
+                        <select name='agama' placeholder=''>
+
+                            <option value="islam">Islam</option>
+                            <option value="katolik">Katolik</option>
+                            <option value="kristen">Kristen</option>
+                            <option value="hindu">Hindu</option>
+                            <option value="budha">Budha</option>
+                        </select>
+                    </div>
+                    <div><input name='a_ke' placeholder='Anak Ke'></div>
+                    <div>Status Keluarga
+                        <select name='status_dk' placeholder=''>
+
+                            <option value="kandung">Kandung</option>
+                            <option value="a_tiri">Anak tiri</option>
+                        </select>
+                    </div>
+
+                    <div><input name='alamat' placeholder='Alamat'></div>
+                    <div><input name='h_siswa' placeholder='No Hp Siswa'></div>
+                    <div><input name='n_ayah' placeholder='Nama Ayah'></div>
+                    <div><input name='h_ayah' placeholder='NoHp Ayah'></div>
+                    <div><input name='n_ibu' placeholder='Nama Ibu'></div>
+                    <div><input name='h_ibu' placeholder='No Hp Ibu'></div>
+                    <input
+                    name="Simpan_baru" type='submit' value='Simpan'>
+
+
+                <!-- Modal -->
+                </form>
+
+                {% for row in data_siswa %}
+                    <div class="modal fade" id="myModal{{row.0}}" role="dialog">
+                        <div
+                            class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button class="close" data-dismiss="modal" type="button">&times;</button>
+
+                                </div>
+                                <!-- masukan disini -->
+
+
+                                <form action='/panel_guru_bk' method='post' action="{{url_for ('simpan_data_siswa')}}">
+                                    <div>
+                                        <input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                                        <input placeholder="" value="{{ row.1 }}" name="nama_siswa" id="nama_siswa" type="text" class="validate"></div>
+
+                                    <div>
+                                        <input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                                        <input placeholder="" value="{{ row.2 }}" name="n_induk" id="n_induk" type="text" class="validate"></div>
+
+                                    <div>
+                                        <input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                                        <input placeholder="" value="{{ row.3 }}" name="nisn" id="nisn" type="text" class="validate"></div>
+
+                                    <div>
+                                        <input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                                        <input placeholder="" value="{{ row.4 }}" name="ttl" id="ttl" type="text" class="validate"></div>
+
+                                    <div>
+                                        <input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                                        <input placeholder="" value="{{ row.5 }}" name="jenis" id="jenis" type="text" class="validate"></div>
+
+                                    <div>
+                                        <input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                                        <input placeholder="" value="{{ row.6 }}" name="agama" id="agama" type="text" class="validate"></div>
+
+                                    <div>
+                                        <input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                                        <input placeholder="" value="{{ row.7 }}" name="a_ke" id="a_ke" type="text" class="validate"></div>
+
+                                    <div>
+                                        <input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                                        <input placeholder="" value="{{ row.8 }}" name="status_dk" id="status_dk" type="text" class="validate"></div>
+
+                                    <div>
+                                        <input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                                        <input placeholder="" value="{{ row.9 }}" name="alamat" id="alamat" type="text" class="validate"></div>
+
+                                    <div>
+                                        <input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                                        <input placeholder="" value="{{ row.10 }}" name="h_siswa" id="h_siswa" type="text" class="validate"></div>
+
+                                    <div>
+                                        <input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                                        <input placeholder="" value="{{ row.11 }}" name="n_ayah" id="n_ayah" type="text" class="validate"></div>
+
+                                    <div>
+                                        <input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                                        <input placeholder="" value="{{ row.12 }}" name="h_ayah" id="h_ayah" type="text" class="validate"></div>
+
+                                    <div>
+                                        <input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                                        <input placeholder="" value="{{ row.13 }}" name="n_ibu" id="n_ibu" type="text" class="validate"></div>
+
+                                    <div>
+                                        <input placeholder="" value="{{ row.0 }}" name="id" id="id" type="hidden">
+                                        <input placeholder="" value="{{ row.14 }}" name="h_ibu" id="h_ibu" type="text" class="validate"></div>
+
+                                    <div class="modal-footer">
+                                        <input methods="POST" name="Lihat_Detail" type='submit' value='Lihat Detail'>
+                                        <input methods="POST" name="Simpan_Edit" type='submit' value='Perbaharui'>
+                                        <input methods="POST" name="Hapus_Edit" style="background-color:red" type='submit' value='Hapus data'>
+                                        <button class="btn btn-default" data-dismiss="modal" type="button">Tutup</button>
+                                    </div>
+
+                                    <!-- Modal -->
+
+                                </form>
+
+                                <!-- akhri disini -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- A ini pagilan dr DB -->
+                <div class="col-sm-10">
+                    <br><hr>
+
+                    <table style="width:100%">
+                        <tr>
+                            <th>
+                                No
+                            </th>
+                            <th>
+                                Nama Siswa
+                            </th>
+                            <th>
+                                Nomor Induk
+                            </th>
+                            <th>
+                                NISN
+                            </th>
+                            <th>
+                                Tempat tanggal lahir
+                            </th>
+                            <th>
+                                Jenis kelamin
+                            </th>
+                            <th>
+                                Agama
+                            </th>
+                            <th>
+                                Anak Ke
+                            </th>
+                            <th>
+                                Status dalam Keluarga
+                            </th>
+                            <th>
+                                Alamat
+                            </th>
+                            <th>
+                                No Hp siswa
+                            </th>
+                            <th>
+                                Nama Ayah
+                            </th>
+                            <th>
+                                No Ayah
+                            </th>
+                            <th>
+                                Nama Ibu
+                            </th>
+                            <th>
+                                No Hp Ibu
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <td>{{loop.index}}
+                            </td>
+                            <td>{{row.1}}</td>
+                            <td>{{row.2}}</td>
+                            <td>{{row.3}}</td>
+                            <td>{{row.4}}</td>
+                            <td>{{row.5}}</td>
+                            <td>{{row.6}}</td>
+                            <td>{{row.7}}</td>
+                            <td>{{row.8}}</td>
+                            <td>{{row.9}}</td>
+                            <td>{{row.10}}</td>
+                            <td>{{row.11}}</td>
+                            <td>{{row.12}}</td>
+                            <td>{{row.13}}</td>
+                            <td>{{row.14}}</td>
+                            <td>
+                                <div
+                                    class="modal-footer">
+                                    <!-- Trigger the modal with a button -->
+                                    <button class="btn btn-info btn-lg" class="container" data-target="#myModal{{row.0}}" data-toggle="modal" style="background-color:green" type="button">Lihat
+                                    </button>
+
+                                    <!-- Modal -->
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+            <!-- B ini pagilan dr DB -->
+        </div>
+    </body>
+</html>
